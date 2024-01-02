@@ -23,10 +23,6 @@ const renderCharacters = (char) => {
 
     }
 
-
-    
-
-
 let random = document.getElementById('random')
 
 random.addEventListener('click', () => {
