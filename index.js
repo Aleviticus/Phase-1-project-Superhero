@@ -1,11 +1,10 @@
 let characters = [];
-
 fetch("https://api.disneyapi.dev/character")
-    .then((res) => res.json())
-    .then((data) => {
-        characters = data.data;
-        console.log(characters); 
-    });
+.then((res) => res.json())
+.then((data) => {
+    characters = data.data;
+    console.log(characters); 
+});
 
 const renderCharacters = (char) => {
     
@@ -26,9 +25,14 @@ const renderCharacters = (char) => {
 let random = document.getElementById('random')
 
 random.addEventListener('click', () => {
-    if(characters.length > 0) {
     const randomIndex = Math.floor(Math.random() * characters.length);
     const randomCharacter = characters[randomIndex] 
+    if(characters.length > 0) {
     console.log(randomCharacter) 
     }
+    renderCharacters(randomCharacter)
 })
+
+
+
+
