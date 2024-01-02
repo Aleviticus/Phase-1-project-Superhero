@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+  }
+  
+    .column {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  header {
+    text-align: center;
+  }
+
+  #random-picture {
+    width: 200px; 
+    height: 200px; 
+  }
+
+  #filter-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  #filter-buttons button {
+    margin-bottom: 5px;
+  }
