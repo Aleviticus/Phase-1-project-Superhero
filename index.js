@@ -1,9 +1,29 @@
+let characters = [];
 
-    fetch ("https://api.disneyapi.dev/character")
+fetch("https://api.disneyapi.dev/character")
     .then((res) => res.json())
-    .then ((data) => {
-    console.log(data)
-    })
+    .then((data) => {
+        characters = data.data;
+        console.log(characters); 
+    });
+
+const renderCharacters = (char) => {
+    
+    let name = document.querySelector("#name")
+    name.textContent = char.name
+    
+    let film = document.querySelector("#film")
+    film.textContent = char.films
+    
+    let img = document.querySelector("#random-picture")
+    img.src = char.imageUrl
+
+    let show = document.querySelector("#show")
+    show.textContent = char.shows
+
+    }
+
+
     
 
 let form = document.getElementById("new-character");
@@ -20,5 +40,15 @@ form.addEventListener("submit", (e) => {
         videoGames: e.target["video-games"].value,
     }
 
-    renderCharacter(newCharacter);
+    renderCharacters(newCharacter);
+})
+
+let random = document.getElementById('random')
+
+random.addEventListener('click', () => {
+    if(characters.length > 0) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    const randomCharacter = characters[randomIndex] 
+    console.log(randomCharacter) 
+    }
 })
