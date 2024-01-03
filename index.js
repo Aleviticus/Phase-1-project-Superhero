@@ -18,7 +18,7 @@ const renderCharacters = (char) => {
     img.src = char.imageUrl
 
     let show = document.querySelector("#show")
-    show.textContent = char.shows
+    show.textContent = char.tvShows
 
 }
 
@@ -35,23 +35,44 @@ let random = document.getElementById('random')
         renderCharacters(randomCharacter)
     })
 
-// let form = document.getElementById("new-character");
+let form = document.getElementById("new-character");
 
-// form.addEventListener("submit", (e) => {
-//     e.preventDefault()
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
 
-//     let newCharacter = {
-//         name: e.target.name.value,
-//         imageUrl: e.target.image.value,
-//         films: e.target.films.value,
-//         shortFilms: e.target["short-films"].value,
-//         tvShows: e.target["tv-shows"].value,
-//         videoGames: e.target["video-games"].value,
-//     }
+    let newCharacter = {
+        name: e.target.name.value,
+        imageUrl: e.target.image.value,
+        films: e.target.films.value,
+        shortFilms: e.target["short-films"].value,
+        tvShows: e.target["tv-shows"].value,
+        videoGames: e.target["video-games"].value,
+    }
 
-//     renderCharacters(newCharacter);
-// })
+    renderCharacters(newCharacter);
+})
 
+
+const filmsButton = document.getElementById('character-films');
+filmsButton.addEventListener('click', filterByFilm);
+
+
+const tvShowsButton = document.getElementById('character-TvShow');
+tvShowsButton.addEventListener('click', filterByTVShows);
+
+const filterByFilm = () => {
+    const charactersWithFilms = characters.filter((char) => char.films.length > 0);
+    
+    console.log(charactersWithFilms);
+  
+}
+
+const filterByTVShows = () => {
+    const charactersWithTVShows = characters.filter((char) => char.tvShows.length > 0);
+
+    console.log(charactersWithTVShows);
+    
+}
 
 
 
