@@ -23,24 +23,6 @@ const renderCharacters = (char) => {
 
 }
 
-// const displayCharacetersFromButton = (char) => {
-
-//     let column = document.getElementById('character-details')
-//     column.innerHTML = ''
-
-//     let name = document.getElementById('name')
-//     name.textContent = char.name
-
-//     const tvShowsButton = document.getElementById('character-TvShow');
-//     tvShowsButton.addEventListener('click', filterByTVShows);
-
-//     const filmsButton = document.getElementById('character-films');
-//     filmsButton.addEventListener('click', filterByFilm);
-
-//     // filterByTVShows(name)
-//     // filterByFilm(name)
-// }
-
 
 let random = document.getElementById('random')
 
@@ -86,6 +68,9 @@ const filterByFilm = () => {
 const filterByTVShows = () => {
     const charactersWithTVShows = characters.filter((char) => char.tvShows.length > 0);
 
+    for(let character of charactersWithTVShows) {
+        renderCharacters(character)
+    }
     console.log(charactersWithTVShows);
     
 }
@@ -97,7 +82,25 @@ filmsButton.addEventListener('click', filterByFilm);
 const tvShowsButton = document.getElementById('character-TvShow');
 tvShowsButton.addEventListener('click', filterByTVShows);
 
+const resetButton = document.getElementById('reset-character')
 
+resetButton.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    const name = document.querySelector("#character-name");
+    name.textContent = "";
+
+    const film = document.querySelector("#film");
+    film.textContent = "";
+
+    const img = document.querySelector("#random-picture");
+    img.src = ""; 
+
+    const show = document.querySelector("#show");
+    show.textContent = "";
+
+
+})
 
 
 
