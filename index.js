@@ -39,6 +39,7 @@ let random = document.getElementById('random')
 
 let form = document.getElementById("new-character");
 
+
 form.addEventListener("submit", (e) => {
     e.preventDefault()
 
@@ -101,6 +102,18 @@ resetButton.addEventListener("click", (e) => {
     show.textContent = "";
 
 
+
 })
 
+let img = document.querySelector("#random-picture") 
 
+img.addEventListener("mouseover", (e) => {
+    e.preventDefault
+    console.log('YAY')
+    const imgUrl = img.src
+    document.body.style.backgroundImage = `url(${imgUrl})`;
+});
+
+img.addEventListener("mouseout", (e) => {
+    document.body.style.backgroundImage = 'none';
+})
