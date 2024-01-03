@@ -54,6 +54,7 @@ form.addEventListener("submit", (e) => {
     renderCharacters(newCharacter);
 })
 
+
 const filterByFilm = () => {
     const charactersWithFilms = characters.filter((char) => char.films.length > 0);
 
@@ -101,6 +102,5 @@ resetButton.addEventListener("click", (e) => {
 
 
 })
-
 
 
