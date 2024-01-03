@@ -26,3 +26,12 @@
   #filter-buttons button {
     margin-bottom: 5px;
   }
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+  }
