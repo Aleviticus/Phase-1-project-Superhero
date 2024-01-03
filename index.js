@@ -8,7 +8,8 @@ fetch("https://api.disneyapi.dev/character")
 
 const renderCharacters = (char) => {
     
-    let name = document.querySelector("#name")
+    let name = document.querySelector("#character-name")
+    console.log(name)
     name.textContent = char.name
     
     let film = document.querySelector("#film")
@@ -21,6 +22,25 @@ const renderCharacters = (char) => {
     show.textContent = char.tvShows
 
 }
+
+// const displayCharacetersFromButton = (char) => {
+
+//     let column = document.getElementById('character-details')
+//     column.innerHTML = ''
+
+//     let name = document.getElementById('name')
+//     name.textContent = char.name
+
+//     const tvShowsButton = document.getElementById('character-TvShow');
+//     tvShowsButton.addEventListener('click', filterByTVShows);
+
+//     const filmsButton = document.getElementById('character-films');
+//     filmsButton.addEventListener('click', filterByFilm);
+
+//     // filterByTVShows(name)
+//     // filterByFilm(name)
+// }
+
 
 let random = document.getElementById('random')
 
@@ -52,16 +72,12 @@ form.addEventListener("submit", (e) => {
     renderCharacters(newCharacter);
 })
 
-
-const filmsButton = document.getElementById('character-films');
-filmsButton.addEventListener('click', filterByFilm);
-
-
-const tvShowsButton = document.getElementById('character-TvShow');
-tvShowsButton.addEventListener('click', filterByTVShows);
-
 const filterByFilm = () => {
     const charactersWithFilms = characters.filter((char) => char.films.length > 0);
+
+    for(let character of charactersWithFilms) {
+        renderCharacters(character)
+    }
     
     console.log(charactersWithFilms);
   
@@ -73,6 +89,14 @@ const filterByTVShows = () => {
     console.log(charactersWithTVShows);
     
 }
+
+const filmsButton = document.getElementById('character-films');
+filmsButton.addEventListener('click', filterByFilm);
+
+
+const tvShowsButton = document.getElementById('character-TvShow');
+tvShowsButton.addEventListener('click', filterByTVShows);
+
 
 
 
