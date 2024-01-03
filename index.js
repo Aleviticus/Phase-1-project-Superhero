@@ -8,7 +8,8 @@ fetch("https://api.disneyapi.dev/character")
 
 const renderCharacters = (char) => {
     
-    let name = document.querySelector("#name")
+    let name = document.querySelector("#character-name")
+    console.log(name)
     name.textContent = char.name
     
     let film = document.querySelector("#film")
@@ -18,9 +19,10 @@ const renderCharacters = (char) => {
     img.src = char.imageUrl
 
     let show = document.querySelector("#show")
-    show.textContent = char.shows
+    show.textContent = char.tvShows
 
 }
+
 
 let random = document.getElementById('random')
 
@@ -37,6 +39,7 @@ let random = document.getElementById('random')
 
 let form = document.getElementById("new-character");
 
+
 form.addEventListener("submit", (e) => {
     e.preventDefault()
 
@@ -52,7 +55,54 @@ form.addEventListener("submit", (e) => {
     renderCharacters(newCharacter);
 })
 
+const filterByFilm = () => {
+    const charactersWithFilms = characters.filter((char) => char.films.length > 0);
 
+    for(let character of charactersWithFilms) {
+        renderCharacters(character)
+    }
+    
+    console.log(charactersWithFilms);
+  
+}
+
+const filterByTVShows = () => {
+    const charactersWithTVShows = characters.filter((char) => char.tvShows.length > 0);
+
+    for(let character of charactersWithTVShows) {
+        renderCharacters(character)
+    }
+    console.log(charactersWithTVShows);
+    
+}
+
+const filmsButton = document.getElementById('character-films');
+filmsButton.addEventListener('click', filterByFilm);
+
+
+const tvShowsButton = document.getElementById('character-TvShow');
+tvShowsButton.addEventListener('click', filterByTVShows);
+
+const resetButton = document.getElementById('reset-character')
+
+resetButton.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    const name = document.querySelector("#character-name");
+    name.textContent = "";
+
+    const film = document.querySelector("#film");
+    film.textContent = "";
+
+    const img = document.querySelector("#random-picture");
+    img.src = ""; 
+
+    const show = document.querySelector("#show");
+    show.textContent = "";
+
+
+
+})
 
 let img = document.querySelector("#random-picture") 
 
