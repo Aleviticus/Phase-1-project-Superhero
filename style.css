@@ -1,13 +1,16 @@
 body {
   /* Set the background image and specify other background properties as needed */
   background-image: url('https://wallpapers.com/images/hd/disney-characters-and-magical-castle-wmu7s6xozw5bnyhk.jpg');
-  background-size: contain; /* Adjust as needed, e.g., 'contain' */
-  background-position: center center; /* Adjust as needed */
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat; /* Adjust as needed */
   /* Additional styles to reset default margin/padding */
   margin: 0;
   padding: 0;
-  
+  transition: background-image 0.5s ease-in-out;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .container {
@@ -36,21 +39,48 @@ body {
     column-gap: 10px;
   }
 
-  #filter-buttons button {
+  .button {
     margin-bottom: 5px;
     width: 100px;
     height: 50px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
   }
 
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    transition: background-image 0.5s ease-in-out;
+  .button a {
+    position:relative;
+    transition: all .45s ease-out;
   }
 
+  #circle {
+    width:0%;
+    height:0%;
+    opacity:0;
+    line-height: 40px;
+    border-radius: 50%;
+    background: #12194a;
+    position: absolute;
+    transition: all .5s ease-out;
+    top:20px;
+    left:70px;
+  }
+
+  .button:hover #circle {
+    width:200%;
+    height: 500%;
+    opacity: 1;
+    top:-70px;
+    left: -70px;
+  }
+
+  .button:hover a {
+    color: #ffffff;
+  }
+
+  #reset-character {
+    background-color: #f3cc64;
+  }
 
   #random {
     width: 200px;
@@ -117,7 +147,3 @@ body {
     align-items: center;
     row-gap: 5px;
   }
-
-  
-
-
