@@ -43,16 +43,19 @@ let form = document.getElementById("new-character");
 form.addEventListener("submit", (e) => {
     e.preventDefault()
 
-    let newCharacter = {
+    let newCharacter = [{
         name: e.target.name.value,
         imageUrl: e.target.image.value,
         films: e.target.films.value,
         shortFilms: e.target["short-films"].value,
         tvShows: e.target["tv-shows"].value,
         videoGames: e.target["video-games"].value,
-    }
+    }]
 
-    renderCharacters(newCharacter);
+    characters = [...newCharacter, ...characters]
+    console.log(characters)
+
+    renderCharacters(newCharacter[0]);
 })
 
 const filterByFilm = () => {
