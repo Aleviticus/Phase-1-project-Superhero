@@ -35,24 +35,34 @@ let random = document.getElementById('random')
         renderCharacters(randomCharacter)
     })
 
-// let form = document.getElementById("new-character");
+let form = document.getElementById("new-character");
 
-// form.addEventListener("submit", (e) => {
-//     e.preventDefault()
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
 
-//     let newCharacter = {
-//         name: e.target.name.value,
-//         imageUrl: e.target.image.value,
-//         films: e.target.films.value,
-//         shortFilms: e.target["short-films"].value,
-//         tvShows: e.target["tv-shows"].value,
-//         videoGames: e.target["video-games"].value,
-//     }
+    let newCharacter = {
+        name: e.target.name.value,
+        imageUrl: e.target.image.value,
+        films: e.target.films.value,
+        shortFilms: e.target["short-films"].value,
+        tvShows: e.target["tv-shows"].value,
+        videoGames: e.target["video-games"].value,
+    }
 
-//     renderCharacters(newCharacter);
-// })
-
-
+    renderCharacters(newCharacter);
+})
 
 
 
+let img = document.querySelector("#random-picture") 
+
+img.addEventListener("mouseover", (e) => {
+    e.preventDefault
+    console.log('YAY')
+    const imgUrl = img.src
+    document.body.style.backgroundImage = `url(${imgUrl})`;
+});
+
+img.addEventListener("mouseout", (e) => {
+    document.body.style.backgroundImage = 'none';
+})
