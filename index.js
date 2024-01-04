@@ -13,13 +13,19 @@ const renderCharacters = (char) => {
     name.textContent = char.name
     
     let film = document.querySelector("#film")
-    film.textContent = "films: " + char.films
+    film.textContent = "Films: " + char.films
     
     let img = document.querySelector("#random-picture")
     img.src = char.imageUrl
 
     let show = document.querySelector("#show")
-    show.textContent = "shows: " + char.tvShows
+    show.textContent = "Shows: " + char.tvShows
+
+    let games = document.querySelector("#game")
+    games.textContent = "Games: " + char.videoGames
+
+    let short = document.querySelector("#short")
+    short.textContent = "ShortFilms: " + char.shortFilms
 
 }
 
