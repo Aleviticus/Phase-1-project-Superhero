@@ -18,13 +18,13 @@ const renderCharacters = (char) => {
     name.textContent = char.name
     
     let film = document.querySelector("#film")
-    film.textContent = char.films
+    film.textContent = "films: " + char.films
     
     let img = document.querySelector("#random-picture")
     img.src = char.imageUrl
 
     let show = document.querySelector("#show")
-    show.textContent = char.tvShows
+    show.textContent = "shows: " + char.tvShows
 
     let videoGames = document.getElementById('video-games')
     videoGames.textContent = char.videoGames
@@ -50,17 +50,24 @@ let form = document.getElementById("new-character");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault()
+
     alert("Your Disney Character Has Been Created")
-    let newCharacter = {
+
+
+    let newCharacter = [{
+
         name: e.target.name.value,
         imageUrl: e.target.image.value,
         films: e.target.films.value,
         shortFilms: e.target["short-films"].value,
         tvShows: e.target["tv-shows"].value,
         videoGames: e.target["video-games"].value,
-    }
+    }]
 
-    renderCharacters(newCharacter);
+    characters = [...newCharacter, ...characters]
+    console.log(characters)
+
+    renderCharacters(newCharacter[0]);
 })
 
 const filterByFilm = () => {
@@ -121,8 +128,9 @@ img.addEventListener("mouseover", (e) => {
     console.log('YAY')
     const imgUrl = img.src
     document.body.style.backgroundImage = `url(${imgUrl})`;
+    document.body.style.color = 'white';
 });
 
 img.addEventListener("mouseout", (e) => {
-    document.body.style.backgroundImage = 'none';
+    document.body.style.backgroundImage = "url('https://wallpapers.com/images/hd/disney-characters-and-magical-castle-wmu7s6xozw5bnyhk.jpg')";
 })
