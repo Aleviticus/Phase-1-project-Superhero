@@ -32,8 +32,6 @@ const renderCharacters = (char) => {
     let shortFilms = document.getElementById('short')
     shortFilms.textContent = "Short Films: " + char.shortFilms
 
-    let videoGames = document.getElementById('video-games')
-    videoGames.textContent = char.videoGames
 
 }
 
