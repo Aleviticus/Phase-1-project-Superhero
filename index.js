@@ -18,19 +18,19 @@ const renderCharacters = (char) => {
     name.textContent = char.name
     
     let film = document.querySelector("#film")
-    film.textContent = "Films: " + char.films
+    film.textContent = "films: " + char.films
     
     let img = document.querySelector("#random-picture")
     img.src = char.imageUrl
 
     let show = document.querySelector("#show")
-    show.textContent = "Shows: " + char.tvShows
+    show.textContent = "shows: " + char.tvShows
 
-    let games = document.querySelector("#game")
-    games.textContent = "Games: " + char.videoGames
+    let videoGames = document.getElementById('game')
+    videoGames.textContent = "Video Games: " + char.videoGames
 
-    let short = document.querySelector("#short")
-    short.textContent = "ShortFilms: " + char.shortFilms
+    let shortFilms = document.getElementById('short')
+    shortFilms.textContent = "Short Films: " + char.shortFilms
 
     let videoGames = document.getElementById('video-games')
     videoGames.textContent = char.videoGames
@@ -44,7 +44,7 @@ let random = document.getElementById('random')
     random.addEventListener('click', () => {
         console.log(random)
         const randomIndex = Math.floor(Math.random() * activeArray.length);
-        const randomCharacter =activeArray[randomIndex] 
+        const randomCharacter = activeArray[randomIndex] 
         if(activeArray.length > 0) {
         console.log(randomCharacter) 
         }
@@ -101,7 +101,7 @@ const filterByTVShows = () => {
     
 }
 
-const filterByVideoGams = () => {
+const filterByVideoGames = () => {
     const charactersWithVideoGames = characters.filter((char) => char.videoGames.length > 0)
 
     activeArray = charactersWithVideoGames
@@ -112,14 +112,30 @@ const filterByVideoGams = () => {
     console.log(charactersWithVideoGames)
 }
 
+const filterByShortFilms = () => {
+    const charactersWithShortFilm = characters.filter((char) => char.shortFilms.length > 0)
+
+    activeArray = charactersWithShortFilm
+
+    for(let shortFilms of charactersWithShortFilm) {
+        renderCharacters(shortFilms)
+    }
+    console.log(charactersWithShortFilm)
+}
+
+
 const videoGames = document.getElementById('character-videogames')
-videoGames.addEventListener('click', filterByVideoGams)
+videoGames.addEventListener('click', filterByVideoGames)
 
 const filmsButton = document.getElementById('character-films');
 filmsButton.addEventListener('click', filterByFilm);
 
 const tvShowsButton = document.getElementById('character-TvShow');
 tvShowsButton.addEventListener('click', filterByTVShows);
+
+const shortFilmsButton = document.getElementById('short-films')
+shortFilmsButton.addEventListener('click', filterByShortFilms)
+
 
 const resetButton = document.getElementById('reset-character')
 
@@ -139,4 +155,5 @@ img.addEventListener("mouseover", (e) => {
 
 img.addEventListener("mouseout", (e) => {
     document.body.style.backgroundImage = "url('https://wallpapers.com/images/hd/disney-characters-and-magical-castle-wmu7s6xozw5bnyhk.jpg')";
+    document.body.style.color = 'black';
 })
