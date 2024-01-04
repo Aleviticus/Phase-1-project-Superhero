@@ -1,3 +1,15 @@
+body {
+  /* Set the background image and specify other background properties as needed */
+  background-image: url('https://wallpapers.com/images/hd/disney-characters-and-magical-castle-wmu7s6xozw5bnyhk.jpg');
+  background-size: contain; /* Adjust as needed, e.g., 'contain' */
+  background-position: center center; /* Adjust as needed */
+  background-repeat: no-repeat; /* Adjust as needed */
+  /* Additional styles to reset default margin/padding */
+  margin: 0;
+  padding: 0;
+  
+}
+
 .container {
     display: flex;
   }

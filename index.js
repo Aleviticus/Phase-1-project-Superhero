@@ -13,13 +13,13 @@ const renderCharacters = (char) => {
     name.textContent = char.name
     
     let film = document.querySelector("#film")
-    film.textContent = char.films
+    film.textContent = "films: " + char.films
     
     let img = document.querySelector("#random-picture")
     img.src = char.imageUrl
 
     let show = document.querySelector("#show")
-    show.textContent = char.tvShows
+    show.textContent = "shows: " + char.tvShows
 
 }
 
@@ -114,8 +114,9 @@ img.addEventListener("mouseover", (e) => {
     console.log('YAY')
     const imgUrl = img.src
     document.body.style.backgroundImage = `url(${imgUrl})`;
+    document.body.style.color = 'white';
 });
 
 img.addEventListener("mouseout", (e) => {
-    document.body.style.backgroundImage = 'none';
+    document.body.style.backgroundImage = "url('https://wallpapers.com/images/hd/disney-characters-and-magical-castle-wmu7s6xozw5bnyhk.jpg')";
 })
